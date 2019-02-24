@@ -1,33 +1,139 @@
-.App {
-  text-align: center;
+body {
+    background-image: url("images/darkTriangles.png");
+    text-align: center;
+    color: white;
+    font-family: Architects Daughter;
+}
+h1 {
+    font-family: Architects Daughter;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.hidden{
+    display:none;
+}
+nav {
+    padding: 10px;
+    text-align: left;
+}
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-image: url("images/prism.png");
+        border-radius: 32px;
+        border: 1px;
+        border-style: ridge;
+        border-color: black;
+        font-family: Architects Daughter;
+    }
+    nav li {
+        display: inline-flex;
+        justify-content: space-between;
+    }
+    nav li a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-right: 0px;
+        border-right-style: ridge;
+        border-color: black;
+        border-left: 0px;
+        border-left-style: ridge;
+        border-color: black;
+    }
+    nav li a:hover:not(.active) {
+        background-color: #4f4b4b;
+        border-radius: 32px;
+        border: 1px;
+    }
+
+button {
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 16pt;
+    border: none;
+    background: none;
+    font-family: Architects Daughter;
+    font-weight: bolder;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    button:hover {
+        background-color: #4f4b4b;
+        border-radius: 32px;
+    }
+
+section {
+    border-radius: 32px;
+    width: 100%;
+    font-family: 'Architects Daughter', cursive;
 }
 
-.App-link {
-  color: #61dafb;
+    section h2 {
+        text-align: center;
+        justify-content: space-between;
+        align-items: stretch;
+        margin: 6px auto;
+        padding: 1px;
+        background-color: #c455f4;
+        border-color: black;
+        border-style: ridge;
+        border-radius: 32px;
+    }
+
+    section p {
+        background-image: url("images/prism.png");
+        text-align: justify;
+        justify-content: space-between;
+        align-items: stretch;
+        border-radius: 32px;
+        border-color: black;
+        border-style: ridge;
+        font-family: helvetica;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        margin: 6px;
+    }
+
+    section div {
+        display: inline-flex;
+    }
+
+.pic {
+    padding: 10px;
+    background-image: url("images/prism.png");
+    border-color: black;
+    border-style: ridge;
+    border-radius: 32px;
+    width: 15%;
+    height: 15%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#pic {
+    padding: 10px;
+    background-image: url("images/prism.png");
+    border-color: black;
+    border-style: ridge;
+    border-radius: 32px;
+    width: 40%;
+    height: 40%;
+}
+
+article {
+    text-align: center;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 6px auto;
+    padding: 1px;
+    background-color: #c455f4;
+    border-color: black;
+    border-style: ridge;
+    border-radius: 32px;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.big {
+    width: 200%;
+    height: 200%;
 }
