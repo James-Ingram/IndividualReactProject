@@ -6,13 +6,15 @@ class FindProduct extends Component {
     render() {
         return (
             <div>
-                <Products/>
-
-            <div>Find The Product Where the productId Matches
-                <input id="productFindInput" type="text" maxLength="20" />
-                <button id="button" type="button" onClick={this.findProduct}>Submit</button>
+                <Products />
+                <div id="productFind">
+                    What Do You Want To <span style={{ color: "lime" }}>Find</span>?
+                
+                <div>Find The Product Where the productId Matches <input id="productFindInput" type="text" maxLength="20" />
+                    <button id="button" type="button" onClick={this.findProduct}>Submit</button>
+                    </div>
+                </div>
             </div>
-           </div>
         
             )
     };

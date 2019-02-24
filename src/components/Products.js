@@ -23,11 +23,10 @@ class Products extends Component {
                     <nav id="options">
                         <ul >
                             <li></li>
-                            <li><Link to='/findProduct'>Find A Product</Link></li>
-                            <li><Link to='/updateProdcut'>Update A Product</Link></li>
-                            <li><Link to='/deleteProduct'>Delete A Product</button></li>
-                            <li><button id="button" type="button"
-                                onClick={this.showOption}>Create A Product</button></li>
+                            <li><Link to='/FindProduct'>Find A Product</Link></li>
+                            <li><Link to='/UpdateProduct'>Update A Product</Link></li>
+                            <li><Link to='/DeleteProduct'>Delete A Product</Link></li>
+                            <li><Link to='/CreateProduct'>Create A Product</Link></li>
                             <li></li>
                         </ul>
                    </nav>
