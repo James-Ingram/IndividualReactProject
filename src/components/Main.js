@@ -6,6 +6,10 @@ import FindProduct from './product/FindProduct.js';
 import DeleteProduct from './product/DeleteProduct.js';
 import CreateProduct from './product/CreateProduct.js';
 import UpdateProduct from './product/UpdateProduct.js';
+import FindStock from './stock/FindStock.js';
+import CreateStock from './stock/CreateStock';
+import DeleteStock from './stock/DeleteStock';
+import UpdateStock from './stock/UpdateStock';
 
 
 const Main = () => (
@@ -16,7 +20,11 @@ const Main = () => (
             <Route path='/FindProduct' component={FindProduct}/>
             <Route path='/DeleteProduct' component={DeleteProduct}/>
             <Route path='/CreateProduct' component={CreateProduct}/>
-            <Route path='/UpdateProduct' component={UpdateProduct}/>
+            <Route path='/UpdateProduct' component={UpdateProduct} />
+            <Route path='/FindStock' component={FindStock} />
+            <Route path='/DeleteStock' component={DeleteStock} />
+            <Route path='/CreateStock' component={CreateStock} />
+            <Route path='/UpdateStock' component={UpdateStock} />
         </Switch>
     </main>
 )

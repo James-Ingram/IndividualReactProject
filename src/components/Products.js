@@ -7,15 +7,6 @@ class Products extends Component {
         axios.get(`http://localhost:8080/JamesIndividualProject/api/product/getAllProducts`)
             .then(r => this.setState({ data: r.data }));
     }
-
-
-    showOption = () => {
-
-    }
-    deleteProduct = () => { }
-    updateProduct = () => { }
-    createProduct = () => { }
-
         render(){
         
             return (

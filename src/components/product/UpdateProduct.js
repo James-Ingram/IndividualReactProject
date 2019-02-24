@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Products from '../Products';
-
+import '../../App.css';
 class UpdateProduct extends Component {
     render() {
         return (

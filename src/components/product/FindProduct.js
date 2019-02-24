@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Products from '../Products.js';
-
+import '../../App.css';
 class FindProduct extends Component {
     findProduct = () => { }
     render() {
@@ -15,7 +15,6 @@ class FindProduct extends Component {
                     </div>
                 </div>
             </div>
-        
             )
     };
 }
