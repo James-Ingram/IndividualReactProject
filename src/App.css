@@ -132,6 +132,17 @@ article {
     border-radius: 32px;
     font-family: 'Architects Daughter', cursive;
 }
+.results {
+    text-align: left;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 6px auto;
+    padding: 10px;
+    background-image: url("images/prism.png");
+    border-color: black;
+    border-style: ridge;
+    border-radius: 32px;
+}
 
 .big {
     width: 200%;

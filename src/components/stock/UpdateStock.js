@@ -10,7 +10,6 @@ class UpdateStock extends Component {
                     id="stockUpdate">What Do You Want To <span style={{ color: "#ffff00" }}>Update</span>?
 	            </div>
             </div>
-
         );
     }
 }
