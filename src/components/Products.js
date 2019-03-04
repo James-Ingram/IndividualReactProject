@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class Products extends Component {
-    getAllProducts = () => {
-        axios.get(`http://localhost:8080/JamesIndividualProject/api/product/getAllProducts`)
-            .then(r => this.setState({ data: r.data }));
-    }
         render(){
         
             return (

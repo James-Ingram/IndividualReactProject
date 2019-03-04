@@ -17,6 +17,9 @@ class FindProduct extends Component {
     }
 
     findProduct = () => {
+        if (this.state.input === "") {
+            alert("Please Enter A Product Id");
+        }
         axios.get(`http://localhost:8080/JamesIndividualProject/api/product/getAProduct/${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
             .catch(e => console.log(e));
@@ -27,8 +30,8 @@ class FindProduct extends Component {
                 <Products />
                 <div id="productFind">
                     What Do You Want To <span style={{ color: "lime" }}>Find</span>?
-                
-                <div>Find The Product Where the productId Matches <input id="productFindInput" type="text" maxLength="20" onChange={this.onChange}/>
+
+                <div>Find The Product Where the productId Matches <input id="productFindInput" type="text" maxLength="20" onChange={this.onChange} required />
                     <button id="button" type="button" onClick={this.findProduct}>Submit</button>
                     </div>
                 </div>
