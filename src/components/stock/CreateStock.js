@@ -17,6 +17,25 @@ class CreateStock extends Component {
         }
     }
     createStock = () => {
+        if (this.state.createInput.supplier === "") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.warehouse === "") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.location === "") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.amount === "") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.lastDeliveryDate === "") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.nextDeliveryDate === "") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        }
         axios.post('http://localhost:8080/JamesIndividualProject/api/stock/createStock/', {
             "supplier": this.state.createInput.supplier,
             "warehouse": this.state.createInput.warehouse,

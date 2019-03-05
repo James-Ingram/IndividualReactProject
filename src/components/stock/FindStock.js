@@ -42,7 +42,6 @@ class FindStock extends Component {
                     lastDeliveryDate={this.state.data.lastDeliveryDate}
                     nextDeliveryDate={this.state.data.nextDeliveryDate}/>
             </div>
-            
             );
     }
 }

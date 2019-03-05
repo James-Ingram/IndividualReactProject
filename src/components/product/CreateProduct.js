@@ -10,12 +10,28 @@ class CreateProduct extends Component {
                 productName: "default",
                 description: "default",
                 productLine: "default",
-                price: "420",
-                mSRP: "420"
+                price: "000",
+                mSRP: "000"
             },
         }
     }
     createProduct = () => {
+        if (this.state.createInput.productName === "default") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.description === "default") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.productLine === "default") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.price === "000") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        } else if (this.state.createInput.mSRP === "000") {
+            alert("One Of The Required Fields Is Empty!");
+            return;
+        }
         axios.post('http://localhost:8080/JamesIndividualProject/api/product/createProduct/', {
             "productName": this.state.createInput.productName,
             "description": this.state.createInput.description,
