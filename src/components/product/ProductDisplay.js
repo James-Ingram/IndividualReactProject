@@ -15,7 +15,7 @@ class ProductDisplay extends Component {
                 <pre>Price:         {this.props.price}</pre>
                 <pre>MSRP:          {this.props.mSRP}</pre>
             </div>
-            );
+        );
     }
 
 }
