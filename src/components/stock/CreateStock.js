@@ -1,7 +1,105 @@
 import React, { Component } from 'react';
 import Stock from '../Stock.js';
 import '../../App.css';
+import axios from 'axios';
 class CreateStock extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            createInput: {
+                supplier: "",
+                warehouse: "",
+                location: "",
+                amount: "",
+                lastDeliveryDate: "",
+                nextDeliveryDate: ""
+            },
+        }
+    }
+    createStock = () => {
+        axios.post('http://localhost:8080/JamesIndividualProject/api/stock/createStock/', {
+            "supplier": this.state.createInput.supplier,
+            "warehouse": this.state.createInput.warehouse,
+            "location": this.state.createInput.location,
+            "amount": this.state.createInput.amount,
+            "lastDeliveryDate": this.state.createInput.lastDeliveryDate,
+            "nextDeliveryDate": this.state.createInput.nextDeliveryDate
+        })
+    }
+    onChangeSupplier = (a) => {
+        this.setState({
+            createInput: {
+                supplier: a.target.value,
+                warehouse: this.state.createInput.warehouse,
+                location: this.state.createInput.location,
+                amount: this.state.createInput.amount,
+                nextDeliveryDate: this.state.createInput.nextDeliveryDate,
+                lastDeliveryDate: this.state.createInput.lastDeliveryDate
+            }
+        })
+    }
+
+    onChangeWarehouse = (a) => {
+        this.setState({
+            createInput: {
+                supplier: this.state.createInput.supplier,
+                warehouse: a.target.value,
+                location: this.state.createInput.location,
+                amount: this.state.createInput.amount,
+                nextDeliveryDate: this.state.createInput.nextDeliveryDate,
+                lastDeliveryDate: this.state.createInput.lastDeliveryDate
+            }
+        })
+    }
+    onChangeLocation = (a) => {
+        this.setState({
+            createInput: {
+                supplier: this.state.createInput.supplier,
+                warehouse: this.state.createInput.warehouse,
+                location: a.target.value,
+                amount: this.state.createInput.amount,
+                nextDeliveryDate: this.state.createInput.nextDeliveryDate,
+                lastDeliveryDate: this.state.createInput.lastDeliveryDate
+            }
+        })
+    }
+    onChangeAmount = (a) => {
+        this.setState({
+            createInput: {
+                supplier: this.state.createInput.supplier,
+                warehouse: this.state.createInput.warehouse,
+                location: this.state.createInput.location,
+                amount: a.target.value,
+                nextDeliveryDate: this.state.createInput.nextDeliveryDate,
+                lastDeliveryDate: this.state.createInput.lastDeliveryDate
+            }
+        })
+    }
+    onChangeLast = (a) => {
+        this.setState({
+            createInput: {
+                supplier: this.state.createInput.supplier,
+                warehouse: this.state.createInput.warehouse,
+                location: this.state.createInput.location,
+                amount: this.state.createInput.amount,
+                nextDeliveryDate: this.state.createInput.nextDeliveryDate,
+                lastDeliveryDate: a.target.value
+            }
+        })
+    }
+    onChangeNext = (a) => {
+        this.setState({
+            createInput: {
+                supplier: this.state.createInput.supplier,
+                warehouse: this.state.createInput.warehouse,
+                location: this.state.createInput.location,
+                amount: this.state.createInput.amount,
+                nextDeliveryDate: a.target.value,
+                lastDeliveryDate: this.state.createInput.lastDeliveryDate
+            }
+        })
+    }
+
 	render() {
 		return (
             <div>
@@ -9,13 +107,13 @@ class CreateStock extends Component {
                 <div id="stockCreate">
                     What Do You Want To <span style={{ color: "lime" }}>Create</span>?
                     <div>
-                        <pre>Supplier:		<input id="stockSupplierInput" type="text" maxLength="20" /></pre>
-                        <pre>Warehouse:		<input id="stockWarehouseInput" type="text" maxLength="20" /></pre>
-                        <pre>Location:		<input id="stockLocationInput" type="text" maxLength="20" /></pre>
-                        <pre>Amount:			<input id="stockAmountInput" type="number" maxLength="5" /></pre>
-                        <pre>Last Delivery Date:	<input id="stockLastDateInput" type="text" maxLength="10" /></pre>
-                        <pre>Next Delivery Date:	<input id="stockNextDateInput" type="text" maxLength="20" /></pre>
-                        <button id="button" type="button" >Submit</button>
+                        <pre>Supplier:		<input id="stockSupplierInput" type="text" maxLength="20" onChange={this.onChangeSupplier}  /></pre>
+                        <pre>Warehouse:		<input id="stockWarehouseInput" type="text" maxLength="20" onChange={this.onChangeWarehouse}/></pre>
+                        <pre>Location:		<input id="stockLocationInput" type="text" maxLength="20" onChange={this.onChangeLocation}  /></pre>
+                        <pre>Amount:			<input id="stockAmountInput" type="number" maxLength="5" onChange={this.onChangeAmount} /></pre>
+                        <pre>Last Delivery Date:	<input id="stockLastDateInput" type="text" maxLength="10" onChange={this.onChangeLast}   /></pre>
+                        <pre>Next Delivery Date:	<input id="stockNextDateInput" type="text" maxLength="20" onChange={this.onChangeNext}   /></pre>
+                        <button id="button" type="button" onClick={this.createStock}>Submit</button>
                     </div>
                 </div>
             </div>
