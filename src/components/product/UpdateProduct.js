@@ -54,14 +54,17 @@ class UpdateProduct extends Component {
             alert("Please Enter A Value");
             return;
         }
-        axios.put(`http://35.189.68.32:8080/JamesIndividualProject/api/product/updateProduct/${this.state.input}`, {
+        axios.delete(`http://35.189.68.32:8080/JamesIndividualProject/api/product/deleteProduct/${this.state.input}`)
+            .then(r => this.setState({ data: r.data }))
+            .catch(e => console.log(e))
+        axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/product/createProduct/', {
             "productName": this.state.createInput.productName,
             "description": this.state.createInput.description,
             "productLine": this.state.createInput.productLine,
             "price": this.state.createInput.price,
             "mSRP": this.state.createInput.mSRP
         })
-            .then(r => this.setState({ data: r.data }))
+            .then();
     }
     onChange = (e) => {
         this.setState({ input: e.target.value });
@@ -140,8 +143,8 @@ class UpdateProduct extends Component {
                     </div>
                 </div>
                 <MessageDisplay
-                    message={this.state.data}
-                />
+                        message={this.state.data}
+                    />
             </div>
         );
     }
