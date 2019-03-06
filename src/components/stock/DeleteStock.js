@@ -31,7 +31,7 @@ class DeleteStock extends Component {
                 <div id="stockDelete">
                     <div>
                         <span style={{ color: "red" }}>Delete</span> The Stock Where The stockId Matches <input
-                            id="stockDeleteInput" type="text" maxLength="20" onChange={this.onChange +9+}/>
+                            id="stockDeleteInput" type="text" maxLength="20" onChange={this.onChange}/>
                         <button id="button" type="button" onClick={this.deleteStock}>Submit</button>
                     </div>
                     <MessageDisplay
