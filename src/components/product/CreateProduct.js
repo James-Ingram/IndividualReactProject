@@ -15,7 +15,23 @@ class CreateProduct extends Component {
             },
         }
     }
+    validateNum(val) {
+        for (let i = 0; i < val.length; i++) {
+            console.log()
+            if (val.charCodeAt(i) < 48 || val.charCodeAt(i) > 57) {
+                return false;
+            }
+        }
+        return true;
+    };
     createProduct = () => {
+        if (!this.validateNum(this.state.createInput.price)) {
+            alert("Price Input Contains Non-Numeric Values!")
+            return;
+        }else if (!this.validateNum(this.state.createInput.mSRP)) {
+            alert("MSRP Input Contains Non-Numeric Values!")
+            return;
+        }
         if (this.state.createInput.productName === "default") {
             alert("One Of The Required Fields Is Empty!");
             return;
@@ -31,18 +47,6 @@ class CreateProduct extends Component {
         } else if (this.state.createInput.mSRP === "000") {
             alert("One Of The Required Fields Is Empty!");
             return;
-        } 
-        for (let i = 0; i < this.state.createInput.price.length; i++) {
-            if (this.state.createInput.price.charAt(i) != /^[0-9]/) {
-                alert("Price Input Contains Non-Numeric Values!")
-                return;
-            }
-        }
-        for (let i = 0; i < this.state.createInput.mSRP.length; i++) {
-            if (this.state.createInput.price.charAt(i)!= /^[0-9]/){
-                alert("Price Input Contains Non-Numeric Values!")
-                return;
-            }
         }
         axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/product/createProduct/', {
             "productName": this.state.createInput.productName,

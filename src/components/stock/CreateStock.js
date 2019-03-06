@@ -16,7 +16,20 @@ class CreateStock extends Component {
             },
         }
     }
+    validateNum(val) {
+        for (let i = 0; i < val.length; i++) {
+            console.log()
+            if (val.charCodeAt(i) < 48 || val.charCodeAt(i) > 57) {
+                return false;
+            }
+        }
+        return true;
+    };
     createStock = () => {
+        if (!this.validateNum(this.state.createInput.amount)){
+            alert("Price Input Contains Non-Numeric Values!")
+            return;
+        }
         if (this.state.createInput.supplier === "") {
             alert("One Of The Required Fields Is Empty!");
             return;
@@ -36,12 +49,6 @@ class CreateStock extends Component {
             alert("One Of The Required Fields Is Empty!");
             return;
         } 
-        for (let i = 0; i < this.state.createInput.amount.length; i++) {
-            if (this.state.createInput.price.charAt(i).search(/^[a-zA-Z]/) > -1) {
-                alert("Price Input Contains Non-Numeric Values!")
-                return;
-            }
-        }
         axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/stock/createStock/', {
             "supplier": this.state.createInput.supplier,
             "warehouse": this.state.createInput.warehouse,
