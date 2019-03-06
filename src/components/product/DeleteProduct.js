@@ -8,7 +8,7 @@ class DeleteProduct extends Component {
         super(props);
         this.state = {
             input: "",
-            data: "Status Unkown"
+            data: "Status Unknown"
         }
     }
     onChange = (e) => {

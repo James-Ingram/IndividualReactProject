@@ -129,6 +129,7 @@ class CreateProduct extends Component {
                         <button id="button" type="button" onClick={this.createProduct}>Submit</button>
                     </div>
                 </div>
+                
             </div>
         );
     }

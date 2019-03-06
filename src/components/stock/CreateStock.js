@@ -27,7 +27,7 @@ class CreateStock extends Component {
     };
     createStock = () => {
         if (!this.validateNum(this.state.createInput.amount)){
-            alert("Price Input Contains Non-Numeric Values!")
+            alert("Amount Input Contains Non-Numeric Values!")
             return;
         }
         if (this.state.createInput.supplier === "") {
