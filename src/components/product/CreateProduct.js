@@ -31,12 +31,18 @@ class CreateProduct extends Component {
         } else if (this.state.createInput.mSRP === "000") {
             alert("One Of The Required Fields Is Empty!");
             return;
-        } else if (this.state.createInput.price.search(/^[a-zA-Z]/) > -1) {
-            alert("Price Input Contains Non-Numeric Values!")
-            return;
-        } else if (this.state.createInput.mSRP.search(/^[a-zA-Z]/) > -1) {
-            alert("Price Input Contains Non-Numeric Values!")
-            return;
+        } 
+        for (let i = 0; i < this.state.createInput.price.length; i++) {
+            if (this.state.createInput.price.charAt(i).search(/^[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]/) > -1) {
+                alert("Price Input Contains Non-Numeric Values!")
+                return;
+            }
+        }
+        for (let i = 0; i < this.state.createInput.mSRP.length; i++) {
+            if (this.state.createInput.price.charAt(i).search(/^[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]/) > -1) {
+                alert("Price Input Contains Non-Numeric Values!")
+                return;
+            }
         }
         axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/product/createProduct/', {
             "productName": this.state.createInput.productName,
@@ -111,11 +117,11 @@ class CreateProduct extends Component {
                 <div id="productCreate">
                     What Do You Want To <span style={{ color: "lime" }}>Create</span>?
 		            <div>
-                        <pre>Product Name: <input id="productNameInput" type="text" maxLength="20" onChange={this.onChangeName}     /></pre>
-                        <pre>Description:  <input id="productDescInput" type="text" maxLength="20" onChange={this.onChangeDesc}     /></pre>
-                        <pre>Product Line: <input id="productLineInput" type="text" maxLength="20" onChange={this.onChangeLine}     /></pre>
-                        <pre>Price:        <input id="produtPriceInput" type="text" pattern="^[0-9]$" maxLength="5" onChange={this.onChangePrice}   /></pre>
-                        <pre>MSRP:         <input id="productMSRPInput" type="text" pattern="^[0-9]$" maxLength="5" onChange={this.onChangeMSRP}    /></pre>
+                        <pre>Product Name: <input id="productNameInput" type="text" maxLength="20" onChange={this.onChangeName} /></pre>
+                        <pre>Description:  <input id="productDescInput" type="text" maxLength="20" onChange={this.onChangeDesc} /></pre>
+                        <pre>Product Line: <input id="productLineInput" type="text" maxLength="20" onChange={this.onChangeLine} /></pre>
+                        <pre>Price:        <input id="produtPriceInput" type="text" pattern="^[0-9]$" maxLength="5" onChange={this.onChangePrice} /></pre>
+                        <pre>MSRP:         <input id="productMSRPInput" type="text" pattern="^[0-9]$" maxLength="5" onChange={this.onChangeMSRP} /></pre>
                         <button id="button" type="button" onClick={this.createProduct}>Submit</button>
                     </div>
                 </div>
