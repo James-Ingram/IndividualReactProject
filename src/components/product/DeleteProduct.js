@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Products from '../Products';
 import '../../App.css';
 import axios from 'axios';
-import MessageDisplay from './MessageDisplay';
+import MessageDisplay from '../MessageDisplay';
 class DeleteProduct extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +15,11 @@ class DeleteProduct extends Component {
         this.setState({ input: e.target.value });
     }
     deleteProduct = (e) => {
-        axios.delete(`http://localhost:8080/JamesIndividualProject/api/product/deleteProduct/${this.state.input}`)
+        if (this.state.input === "") {
+            alert("Please Enter A Value");
+            return;
+        }
+        axios.delete(`http://35.189.68.32:8080/JamesIndividualProject/api/product/deleteProduct/${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
         .catch(e => console.log(e))
     }

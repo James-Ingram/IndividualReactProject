@@ -20,7 +20,7 @@ class FindProduct extends Component {
         if (this.state.input === "") {
             alert("Please Enter A Product Id");
         }
-        axios.get(`http://localhost:8080/JamesIndividualProject/api/product/getAProduct/${this.state.input}`)
+        axios.get(`http://35.189.68.32:8080/JamesIndividualProject/api/product/getAProduct/${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
             .catch(e => console.log(e));
     }

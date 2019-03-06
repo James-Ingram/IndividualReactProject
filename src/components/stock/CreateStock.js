@@ -36,7 +36,7 @@ class CreateStock extends Component {
             alert("One Of The Required Fields Is Empty!");
             return;
         }
-        axios.post('http://localhost:8080/JamesIndividualProject/api/stock/createStock/', {
+        axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/stock/createStock/', {
             "supplier": this.state.createInput.supplier,
             "warehouse": this.state.createInput.warehouse,
             "location": this.state.createInput.location,

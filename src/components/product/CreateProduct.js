@@ -32,7 +32,7 @@ class CreateProduct extends Component {
             alert("One Of The Required Fields Is Empty!");
             return;
         }
-        axios.post('http://localhost:8080/JamesIndividualProject/api/product/createProduct/', {
+        axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/product/createProduct/', {
             "productName": this.state.createInput.productName,
             "description": this.state.createInput.description,
             "productLine": this.state.createInput.productLine,
