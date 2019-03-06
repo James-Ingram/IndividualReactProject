@@ -50,8 +50,10 @@ class UpdateStock extends Component {
         } else if (this.state.createInput.nextDeliveryDate === "") {
             alert("One Of The Required Fields Is Empty!");
             return;
-        }
-        axios.put(`http://35.189.68.32:8080/JamesIndividualProject/api/stock/createStock/${this.state.input}`, {
+        } axios.delete(`http://35.189.68.32:8080/JamesIndividualProject/api/stock/deleteStock/${this.state.input}`)
+            .then(r => this.setState({ data: r.data }))
+            .catch(e => console.log(e))
+        axios.post(`http://35.189.68.32:8080/JamesIndividualProject/api/stock/createStock/`, {
             "supplier": this.state.createInput.supplier,
             "warehouse": this.state.createInput.warehouse,
             "location": this.state.createInput.location,
