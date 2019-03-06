@@ -129,7 +129,7 @@ class CreateStock extends Component {
                         <pre>Supplier:		<input id="stockSupplierInput" type="text" maxLength="20" onChange={this.onChangeSupplier}  /></pre>
                         <pre>Warehouse:		<input id="stockWarehouseInput" type="text" maxLength="20" onChange={this.onChangeWarehouse}/></pre>
                         <pre>Location:		<input id="stockLocationInput" type="text" maxLength="20" onChange={this.onChangeLocation}  /></pre>
-                        <pre>Amount:			<input id="stockAmountInput" type="number" max="9999" onChange={this.onChangeAmount} /></pre>
+                        <pre>Amount:			<input id="stockAmountInput" type="text" pattern="\d*" maxLength="5"  onChange={this.onChangeAmount} /></pre>
                         <pre>Last Delivery Date:	<input id="stockLastDateInput" type="text" maxLength="10" onChange={this.onChangeLast}   /></pre>
                         <pre>Next Delivery Date:	<input id="stockNextDateInput" type="text" maxLength="20" onChange={this.onChangeNext}   /></pre>
                         <button id="button" type="button" onClick={this.createStock}>Submit</button>

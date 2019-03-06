@@ -108,8 +108,8 @@ class CreateProduct extends Component {
                         <pre>Product Name: <input id="productNameInput" type="text" maxLength="20" onChange={this.onChangeName}     /></pre>
                         <pre>Description:  <input id="productDescInput" type="text" maxLength="20" onChange={this.onChangeDesc}     /></pre>
                         <pre>Product Line: <input id="productLineInput" type="text" maxLength="20" onChange={this.onChangeLine}     /></pre>
-                        <pre>Price:        <input id="produtPriceInput" type="number" min="0" max="9999" onChange={this.onChangePrice}   /></pre>
-                        <pre>MSRP:         <input id="productMSRPInput" type="number" min="0" max="9999" onChange={this.onChangeMSRP}    /></pre>
+                        <pre>Price:        <input id="produtPriceInput" type="text" pattern="\d*" maxLength="5" onChange={this.onChangePrice}   /></pre>
+                        <pre>MSRP:         <input id="productMSRPInput" type="text" pattern="\d*" maxLength="5" onChange={this.onChangeMSRP}    /></pre>
                         <button id="button" type="button" onClick={this.createProduct}>Submit</button>
                     </div>
                 </div>
