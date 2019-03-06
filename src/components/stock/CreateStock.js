@@ -35,6 +35,9 @@ class CreateStock extends Component {
         } else if (this.state.createInput.nextDeliveryDate === "") {
             alert("One Of The Required Fields Is Empty!");
             return;
+        } else if (this.state.createInput.amount.search(/^[a-zA-Z]/) > -1) {
+            alert("Price Input Contains Non-Numeric Values!")
+            return;
         }
         axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/stock/createStock/', {
             "supplier": this.state.createInput.supplier,
@@ -129,7 +132,7 @@ class CreateStock extends Component {
                         <pre>Supplier:		<input id="stockSupplierInput" type="text" maxLength="20" onChange={this.onChangeSupplier}  /></pre>
                         <pre>Warehouse:		<input id="stockWarehouseInput" type="text" maxLength="20" onChange={this.onChangeWarehouse}/></pre>
                         <pre>Location:		<input id="stockLocationInput" type="text" maxLength="20" onChange={this.onChangeLocation}  /></pre>
-                        <pre>Amount:			<input id="stockAmountInput" type="text" pattern="\d*" maxLength="5"  onChange={this.onChangeAmount} /></pre>
+                        <pre>Amount:			<input id="stockAmountInput" type="number" maxLength="5" onChange={this.onChangeAmount} /></pre>
                         <pre>Last Delivery Date:	<input id="stockLastDateInput" type="text" maxLength="10" onChange={this.onChangeLast}   /></pre>
                         <pre>Next Delivery Date:	<input id="stockNextDateInput" type="text" maxLength="20" onChange={this.onChangeNext}   /></pre>
                         <button id="button" type="button" onClick={this.createStock}>Submit</button>
