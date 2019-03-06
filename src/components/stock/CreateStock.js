@@ -37,7 +37,7 @@ class CreateStock extends Component {
             return;
         } 
         for (let i = 0; i < this.state.createInput.amount.length; i++) {
-            if (this.state.createInput.price.charAt(i).search(/^[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]/) > -1) {
+            if (this.state.createInput.price.charAt(i).search(/^[a-zA-Z]/) > -1) {
                 alert("Price Input Contains Non-Numeric Values!")
                 return;
             }

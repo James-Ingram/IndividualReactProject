@@ -33,13 +33,13 @@ class CreateProduct extends Component {
             return;
         } 
         for (let i = 0; i < this.state.createInput.price.length; i++) {
-            if (this.state.createInput.price.charAt(i).search(/^[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]/) > -1) {
+            if (this.state.createInput.price.charAt(i) != /^[0-9]/) {
                 alert("Price Input Contains Non-Numeric Values!")
                 return;
             }
         }
         for (let i = 0; i < this.state.createInput.mSRP.length; i++) {
-            if (this.state.createInput.price.charAt(i).search(/^[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]/) > -1) {
+            if (this.state.createInput.price.charAt(i)!= /^[0-9]/){
                 alert("Price Input Contains Non-Numeric Values!")
                 return;
             }
