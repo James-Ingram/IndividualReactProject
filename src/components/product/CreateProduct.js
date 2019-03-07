@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Products from '../Products';
 import '../../App.css';
 import axios from 'axios';
+import MessageDisplay from '../MessageDisplay';
 class CreateProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data: "",
             createInput: {
                 productName: "default",
                 description: "default",
@@ -55,7 +57,7 @@ class CreateProduct extends Component {
             "price": this.state.createInput.price,
             "mSRP": this.state.createInput.mSRP
         })
-            .then();
+            .then(r => this.setState({ data: r.data }));
     }
     onChangeName = (a) => {
         this.setState({
@@ -129,7 +131,9 @@ class CreateProduct extends Component {
                         <button id="button" type="button" onClick={this.createProduct}>Submit</button>
                     </div>
                 </div>
-                
+                <MessageDisplay
+                    message={this.state.data}
+                />
             </div>
         );
     }

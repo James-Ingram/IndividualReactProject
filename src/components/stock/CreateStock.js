@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Stock from '../Stock.js';
 import '../../App.css';
 import axios from 'axios';
+import MessageDisplay from '../MessageDisplay';
 class CreateStock extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data: "Status Unknown",
             createInput: {
                 supplier: "",
                 warehouse: "",
@@ -56,7 +58,7 @@ class CreateStock extends Component {
             "amount": this.state.createInput.amount,
             "lastDeliveryDate": this.state.createInput.lastDeliveryDate,
             "nextDeliveryDate": this.state.createInput.nextDeliveryDate
-        })
+        }).then(r => this.setState({ data: r.data }))
     }
     onChangeSupplier = (a) => {
         this.setState({
@@ -148,6 +150,9 @@ class CreateStock extends Component {
                         <button id="button" type="button" onClick={this.createStock}>Submit</button>
                     </div>
                 </div>
+                <MessageDisplay
+                    message={this.state.data}
+                />
             </div>
             
             );
