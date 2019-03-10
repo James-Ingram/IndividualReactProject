@@ -14,7 +14,7 @@ class CreateProduct extends Component {
                 productLine: "default",
                 price: "000",
                 mSRP: "000"
-            },
+              },
         }
     }
     validateNum(val) {

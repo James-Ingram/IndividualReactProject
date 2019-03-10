@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import Stock from '../Stock.js';
 import '../../App.css';
 import axios from 'axios';
+import MessageDisplay from '../MessageDisplay'; 
 class UpdateStock extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data:"",
+            data: "Status Unknown",
             input: "",
             createInput: {
                 supplier: "",
@@ -60,7 +61,7 @@ class UpdateStock extends Component {
             "amount": this.state.createInput.amount,
             "lastDeliveryDate": this.state.createInput.lastDeliveryDate,
             "nextDeliveryDate": this.state.createInput.nextDeliveryDate
-        })
+        }).then(r => this.setState({ data: r.data }))
     }
     onChange = (e) => {
         this.setState({ input: e.target.value });
@@ -141,11 +142,21 @@ class UpdateStock extends Component {
     render() {
         return (
             <div>
-                <Stock />   
+                <Stock />
                 <div
                     id="stockUpdate">What Do You Want To <span style={{ color: "#ffff00" }}>Update</span>?
                     <pre>Enter The StockID Of The Stock To Update <input id="updateInput" type="text" maxLength="20" onChange={this.onChange} /> </pre>
-                    </div>
+                </div>
+                <pre>Supplier:		<input id="stockSupplierInput" type="text" maxLength="20" onChange={this.onChangeSupplier} /></pre>
+                <pre>Warehouse:		<input id="stockWarehouseInput" type="text" maxLength="20" onChange={this.onChangeWarehouse} /></pre>
+                <pre>Location:		<input id="stockLocationInput" type="text" maxLength="20" onChange={this.onChangeLocation} /></pre>
+                <pre>Amount:			<input id="stockAmountInput" type="text" maxLength="5" onChange={this.onChangeAmount} /></pre>
+                <pre>Last Delivery Date:	<input id="stockLastDateInput" type="text" maxLength="10" onChange={this.onChangeLast} /></pre>
+                <pre>Next Delivery Date:	<input id="stockNextDateInput" type="text" maxLength="20" onChange={this.onChangeNext} /></pre>
+                <button id="button" type="button" onClick={this.updateStock}>Submit</button>
+                <MessageDisplay
+                    message={this.state.data}
+                />
             </div>
         );
     }
