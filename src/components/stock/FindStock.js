@@ -3,6 +3,7 @@ import Stock from '../Stock.js';
 import axios from 'axios';
 import '../../App.css';
 import StockDisplay from './StockDisplay';
+import * as Constants from "../Constants";
 class FindStock extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +20,7 @@ class FindStock extends Component {
         if (this.state.input === "") {
             alert("Please Enter A StockId!");
         }
-        axios.get(`http://35.189.68.32:8080/JamesIndividualProject/api/stock/getAStock/${this.state.input}`)
+        axios.get( Constants.BASE_URL + Constants.FIND_STOCK_URL+`${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
             .catch(e => console.log(e));
     }

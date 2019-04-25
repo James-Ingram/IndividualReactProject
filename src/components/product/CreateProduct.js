@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Products from '../Products';
 import '../../App.css';
 import axios from 'axios';
+import * as Constants from "../Constants";
 import MessageDisplay from '../MessageDisplay';
 class CreateProduct extends Component {
     constructor(props) {
@@ -50,7 +51,7 @@ class CreateProduct extends Component {
             alert("One Of The Required Fields Is Empty!");
             return;
         }
-        axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/product/createProduct/', {
+        axios.post(Constants.BASE_URL + Constants.CREATE_PRODUCT_URL, {
             "productName": this.state.createInput.productName,
             "description": this.state.createInput.description,
             "productLine": this.state.createInput.productLine,

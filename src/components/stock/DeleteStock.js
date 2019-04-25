@@ -3,6 +3,7 @@ import Stock from '../Stock.js';
 import '../../App.css';
 import axios from 'axios';
 import MessageDisplay from '../MessageDisplay';
+import * as Constants from "../Constants";
 
 class DeleteStock extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class DeleteStock extends Component {
             alert("Please Enter A Value");
             return;
         }
-        axios.delete(`http://35.189.68.32:8080/JamesIndividualProject/api/stock/deleteStock/${this.state.input}`)
+        axios.delete( Constants.BASE_URL + Constants.DELETE_STOCK_URL+`${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
             .catch(e => console.log(e))
     }

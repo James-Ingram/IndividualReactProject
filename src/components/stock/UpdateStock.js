@@ -3,6 +3,7 @@ import Stock from '../Stock.js';
 import '../../App.css';
 import axios from 'axios';
 import MessageDisplay from '../MessageDisplay'; 
+import * as Constants from "../Constants";
 class UpdateStock extends Component {
     constructor(props) {
         super(props);
@@ -51,10 +52,10 @@ class UpdateStock extends Component {
         } else if (this.state.createInput.nextDeliveryDate === "") {
             alert("One Of The Required Fields Is Empty!");
             return;
-        } axios.delete(`http://35.189.68.32:8080/JamesIndividualProject/api/stock/deleteStock/${this.state.input}`)
+        } axios.delete(Constants.BASE_URL + Constants.DELETE_STOCK_URL+`${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
             .catch(e => console.log(e))
-        axios.post(`http://35.189.68.32:8080/JamesIndividualProject/api/stock/createStock/`, {
+        axios.post(Constants.BASE_URL + Constants.CREATE_STOCK_URL, {
             "supplier": this.state.createInput.supplier,
             "warehouse": this.state.createInput.warehouse,
             "location": this.state.createInput.location,

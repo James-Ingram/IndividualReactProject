@@ -3,6 +3,7 @@ import Products from '../Products.js';
 import axios from 'axios';
 import '../../App.css';
 import ProductDisplay from './ProductDisplay';
+import * as Constants from "../Constants";
 class FindProduct extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,7 @@ class FindProduct extends Component {
         if (this.state.input === "") {
             alert("Please Enter A Product Id");
         }
-        axios.get(`http://35.189.68.32:8080/JamesIndividualProject/api/product/getAProduct/${this.state.input}`)
+        axios.get(Constants.BASE_URL + Constants.FIND_PRODUCT_URL+`${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
             .catch(e => console.log(e));
     }

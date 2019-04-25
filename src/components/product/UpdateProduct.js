@@ -3,6 +3,7 @@ import Products from '../Products';
 import '../../App.css';
 import axios from 'axios';
 import MessageDisplay from '../MessageDisplay';
+import * as Constants from "../Constants";
 class UpdateProduct extends Component {
     constructor(props) {
         super(props);
@@ -54,10 +55,10 @@ class UpdateProduct extends Component {
             alert("Please Enter A Value");
             return;
         }
-        axios.delete(`http://35.189.68.32:8080/JamesIndividualProject/api/product/deleteProduct/${this.state.input}`)
+        axios.delete(Constants.BASE_URL + Constants.DELETE_PRODUCT_URL  + `${this.state.input}`)
             .then(r => this.setState({ data: r.data }))
             .catch(e => console.log(e))
-        axios.post('http://35.189.68.32:8080/JamesIndividualProject/api/product/createProduct/', {
+        axios.post(Constants.BASE_URL + Constants.CREATE_PRODUCT_URL, {
             "productName": this.state.createInput.productName,
             "description": this.state.createInput.description,
             "productLine": this.state.createInput.productLine,
