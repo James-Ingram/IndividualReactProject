@@ -1,4 +1,4 @@
-export const BASE_URL  = "http://35.197.196.158:8080/"
+export const BASE_URL  = "http://35.197.196.158:8888/"
 
 export const CREATE_PRODUCT_URL = "JamesIndividualProject/api/product/createProduct/"
 export const DELETE_PRODUCT_URL = "JamesIndividualProject/api/product/deleteProduct/"
